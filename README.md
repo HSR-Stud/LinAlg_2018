@@ -1,8 +1,7 @@
-LinAlg
-======
+# LinAlg
 
-Lineare Algebra
 
-Updated: January 2014
+Formelsammlung Lineare Algebra
 
-License: CC by-sa 3.0
+## License
+CC BY-SA-NC 3.0
