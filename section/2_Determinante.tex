@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Determinante
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Determinante}
+
+\subsection{Definition einer Determinante}
+	\begin{enumerate}
+		\item $det(A)$ ändert sich nicht unter der Operation $E$ bzw. \textit{blauen} Operation.
+		\item Wird eine Zeile von $A$ mit $\lambda$ multipliziert, wird auch $det(A)$ mit $\lambda$ multipliziert: $det(\lambda A)=\lambda^{Anzahl Zeilen/Spalten}det(A)$
+		\item $det(E) = 1$
+	\end{enumerate}
+
+\subsection{Eigenschaften der Determinante}
+	\begin{itemize}
+		\item Hat $A$ eine Nullzeile/Nullspalte, dann ist $det(A) = 0$
+		\item Hat $A$ \underline{zwei gleiche} Zeilen/Spalten, dann ist $det(A) = 0$
+		\item Ist $A$ regulär $\Leftrightarrow$ $det(A) \neq 0$ \\
+			Ist $A$ singulär $\Leftrightarrow$ $det(A) = 0$
+		\item Vertauscht man zwei Zeilen/Spalten, dann ändert sich das Vorzeichen der Determinante.
+		\item Beschreibt eine Fläche eines Parallelogrammes (2D) bzw. ein Volumen eines Parallelepipeds (3D).
+		\item Kann nur ermittelt werden, wenn die Matrix exkl. Lösungen quadratisch ist.
+	\end{itemize}
+
+\subsection{Gauss-Verfahren}
+	 Um die Determinante mit dem Gauss-Verfahren zu bestimmen werden die rot umkreiste Pivot-Elemente herausgenommen und miteinander multipliziert.
+	\begin{equation*}
+		\left|\begin{array}{ccc}
+			\circledr{2} & 2 & 4 \\
+				4 & 5 & 6 \\
+				7 & 8 & 5 \\
+		\end{array}\right| 
+		\rightarrow %^{Gauss} \rightarrow \; $$2{\;}* $$ {\;}
+		2*
+		\left|\begin{array}{ccc}	
+			1 & 1 & 2 \\
+			\circledb{4} & 5 & 6 \\
+			\circledb{7} & 8 & 5 \\
+		\end{array}\right|
+		\rightarrow
+		2*
+		\left|\begin{array}{ccc}	
+		1 & 1 & 2 \\
+		0 & \circledr{1} & -2 \\
+		0 & \circledb{1} & -9 \\
+		\end{array}\right|
+		\rightarrow
+		2*1*
+		\left|\begin{array}{ccc}	
+		\circledr{1} & 1 & 2 \\
+		0 & \circledr{1} & -2 \\
+		0 & 0 & \circledr{-7} \\
+		\end{array}\right|
+		\rightarrow
+		2*1*(-7)*1*1=-14
+	\end{equation*}
+
+\subsection{Entwicklungssatz}
+	\begin{enumerate}
+		\item Zeile/Spalte auswählen (mit möglichst vielen Nullen)
+		\item 1 Element herausnehmen
+		\item Zeile und Spalte des herausgenommenen Elements abdecken
+		\item Element mit der Determinante der nicht abgedeckten Elemente multiplizieren
+		\item Schritt 2-4 wiederholen und zum 1. Element addieren/subtrahieren ($\rightarrow$ siehe Vorzeichen Matrix)
+	\end{enumerate}
+	
+	Vorzeichenmatrix: $\begin{array}{|c|c|c|c|}
+		\hline + & - & + & - \\
+		\hline - & + & - & + \\
+		\hline + & - & + & - \\
+		\hline - & + & - & + \\
+		\hline \end{array}$ \\ \\
+
+	\textbf{Beispiel:} $\left|\begin{array}{ccc}
+		\color{red}a & \color{green}b & \color{blue}c \\
+		d & e & f \\
+		g & h & i \end{array}\right| 
+	= {\color{red}a} \left|\begin{array}{cc}
+		e & f \\
+		h & i \end{array}\right| 
+	- {\color{green}b} \left|\begin{array}{cc}
+		d & f \\
+		g & i \end{array}\right|
+	+ {\color{blue}c} \left|\begin{array}{cc}
+		d & e \\
+		g & h \end{array}\right|$ \\
+
+\subsection{Wichtige Determinanten}
+	$det\left(\begin{array}{cc}
+		a & b \\
+		c & d \end{array}\right)
+	= ad - bc \qquad \qquad
+	det\left(\begin{array}{ccc}
+		a & b & c \\
+		d & e & f \\
+		g & h & i \end{array}\right)
+	= \underbrace{aei + bfg + cdh - ceg - afh - bdi}_{Sarrus'sche Formel}$
+
+\subsection{Cramsche Regel}\label{Cramesche Regel}
+	$x_1= \frac{\left|\begin{array}{cccc}
+		b_1 & a_{12} & \ldots & a_{1n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		b_n & a_{n2} & \ldots & a_{nn} \end{array}\right|}{det(A)}; \qquad
+	x_2 = \frac{\left|\begin{array}{ccccc}
+		a_{11} & b_1 & a_{13} & \ldots & a_{1n}\\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		a_{n1} & b_n & a_{n3} & \ldots & a_{nn} \end{array}\right|}{det(A)}$ \\ \\
+	Inverse Matrix mit Cramer (Minoren): $A^{-1} = C : c_{ik} = \frac{(-1)^{k+i} \cdot det(A_{ki})}{det(A)} \longrightarrow$ 1. Index = Zeile; 2.Index = Spalte
+	
+	\textbf{Beispiel 3x3 Matrix:} \ \ 
+		$A=\left(\begin{array}{rrr} 
+				a & b & c \\
+				d & e & f \\
+				g & h & i \\
+			\end{array}\right)$ \\ \ \\
+			
+		$A^{-1}=\displaystyle \frac{1}{det(A)}
+			\left(\begin{array}{rrr} 
+				+\underbrace{\left|\begin{array}{rr} e & f \\ h & i \\ \end{array}\right|}_{det(A_{11})} &
+				-\underbrace{\left|\begin{array}{rr} b & c \\ h & i \\ \end{array}\right|}_{det(A_{21})} &
+				+\underbrace{\left|\begin{array}{rr} b & c \\ e & f \\ \end{array}\right|}_{det(A_{31})} \\
+			
+				-\underbrace{\left|\begin{array}{rr} d & f \\ g & i \\ \end{array}\right|}_{det(A_{12})} &
+				+\underbrace{\left|\begin{array}{rr} a & c \\ g & i \\ \end{array}\right|}_{det(A_{22})} &
+				-\underbrace{\left|\begin{array}{rr} a & c \\ d & f \\ \end{array}\right|}_{det(A_{32})} \\
+			
+				+\underbrace{\left|\begin{array}{rr} d & e \\ g & h \\ \end{array}\right|}_{det(A_{13})} &
+				-\underbrace{\left|\begin{array}{rr} a & b \\ g & h \\ \end{array}\right|}_{det(A_{23})} &
+				+\underbrace{\left|\begin{array}{rr} a & b \\ d & e \\ \end{array}\right|}_{det(A_{33})} \\
+			\end{array}\right)$			
+\subsection{Spezielle Fälle}
+	$det\left(\begin{array}{cc} 
+			A & 0 \\
+			0 & B \\
+		\end{array}\right)=det(A)det(B)$ \ \ wobei $A$ und $B$ Matrizen von Grösse $n*n$ sind.
+\subsection{Produktsatz}
+$det(C \cdot D) = det(C) \cdot det(D)$

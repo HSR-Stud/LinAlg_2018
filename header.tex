@@ -1,0 +1,76 @@
+%Schriftgr"osse, Layout, Papierformat, Art des Dokumentes
+\documentclass[10pt,twoside,a4paper,fleqn]{article}
+%Einstellungen der Seitenr"ander
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm,includeheadfoot]{geometry}
+% Sprache, Zeichensatz, packages
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel,varioref}
+\usepackage{amssymb,amsmath,fancybox,graphicx,color,lastpage,wrapfig,fancyhdr,hyperref,verbatim,tabularx, textcomp}
+%Text Umkreisung
+\usepackage{tikz}
+%Verweise auf anderes Kapitel
+\usepackage{xr}
+%\usepackage{hyperref} 
+
+%pdf info
+\hypersetup{pdfauthor={\authorinfo},pdftitle={\titleinfo},colorlinks=false}
+%linkbordercolor=white
+\author{\authorinfo}
+\title{\titleinfo}
+
+%Kopf- und Fusszeile
+\pagestyle{fancy}
+\fancyhf{}
+%Linien oben und unten
+\renewcommand{\headrulewidth}{0.5pt} 
+\renewcommand{\footrulewidth}{0.5pt}
+
+\fancyhead[L]{\titleinfo{ }\tiny{(\versioninfo)}}
+%Kopfzeile rechts bzw. aussen
+\fancyhead[R]{Seite \thepage { }von \pageref{LastPage}}
+%Fusszeile links bzw. innen
+\fancyfoot[L]{\footnotesize{\authorinfo}}
+%Fusszeile rechts bzw. ausen
+\fancyfoot[R]{\footnotesize{\today}}
+
+%Neue Befehle:
+%1: Fügt vertikaln Balken bei matrix ein.
+%2: Umkreist den Text darin.
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
+\makeatletter
+\newcommand*{\addFileDependency}[1]{% argument=file name and extension
+	\typeout{(#1)}
+	\@addtofilelist{#1}
+	\IfFileExists{#1}{}{\typeout{No file #1.}}
+}
+\makeatother
+
+\newcommand*{\myexternaldocument}[1]{%
+	\externaldocument{#1}%
+	\addFileDependency{#1.tex}%
+	\addFileDependency{#1.aux}%
+}
+
+\newcommand*\circledr[1]	{
+	\tikz [baseline = (char.base)]	{
+		\node [shape = circle, draw = red, inner sep = 2pt, text = black] (char) {#1};
+}
+}
+
+\newcommand*\circledb[1]	{
+	\tikz [baseline = (char.base)]	{
+		\node [shape = circle, draw = blue, inner sep = 2pt, text = black] (char) {#1};
+}
+}
+
+\newcommand*\circledy[1]	{
+	\tikz [baseline = (char.base)]	{
+		\node [shape = circle, draw = orange, inner sep = 2pt, text = black] (char) {#1};
+}
+}

@@ -1,0 +1,55 @@
+\clearpage
+\begin{sidewaystable}
+	\section{Tabelle spezieller Matrizen}
+		\begin{equation*}
+			\begin{tabular}{|p{3cm}|c|c|c|p{2cm}|p{3cm}|c|p{2cm}|}
+				\hline
+					Name & Matrix & Spur & det & Eigenwert(e) (EW(A)) & Charakteristisches Polynom & Inverse $(A^{-1})$ & Orthogonalit. \\
+				\hline
+					Einheitsmatrix & $E = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$	& n (2) & 1 & 1 & $\lambda^2 -2 \lambda + 1$ & 
+					$E^{-1} = E$ & Orthogonal \\
+				\hline
+					Punktspiegelung & $P = \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix}$ & n (-2) & 1 & -1 & $\lambda^2 +2 \lambda + 1$ & 
+					$P^{-1} = P$ & Orthogonal \\
+				\hline
+					Streckung am Urspung um Faktor 1 & $Z_{\lambda} = Z_{3} = \begin{bmatrix} 3 & 0 \\ 0 & 3 \end{bmatrix} = \begin{bmatrix} \lambda & 0 \\ 0 & \lambda \end{bmatrix}$ & $\lambda n (2 \cdot 3)$ & $\lambda^n (3^2)$ & $\lambda$ & $\lambda \neq \lambda$ \endgraf $\lambda^2 -2 \lambda a + a^2$\endgraf $a = \lambda$ von vorher = Streckung! & \endgraf $Z_{a}^{-1} = \frac{1}{a} E$ & Nicht orthogonal \\
+				\hline
+					Projektion auf X-Achse & $P_{X} = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$ & 1 & 0 & 0 \& 1 & $
+					\lambda^2 - \lambda = \lambda (\lambda - 1)$ & Keine! & Nicht orthogonal \\
+				\hline
+					Projektion auf Y-Achse & $P_{Y} = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix}$ & 1 & 0 & 0 \& 1 & $
+					\lambda^2 - \lambda = \lambda (\lambda - 1)$ & Keine! & Nicht orthogonal \\
+				\hline
+					Spiegelung an X-Achse & $S_{X} = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$ & 0 & -1 & 1 \& 1 & $
+					\lambda^2 - \lambda = \lambda (\lambda - 1)$ & $S_{X} = S_{X}^{-1}$ & Orthogonal \\
+				\hline
+					Spiegelung an X-Achse & $S_{Y} = \begin{bmatrix} -1 & 0 \\ 0 & 1 \end{bmatrix}$ & 0 & -1 & -1 \& 1 & $
+					\lambda^2 - \lambda = \lambda (\lambda - 1)$ & $S_{Y} = S_{Y}^{-1}$ & Orthogonal \\
+				\hline
+					Drehmatrix allgemein! & $R_{\alpha} = \begin{bmatrix} \cos{\alpha} & -\sin{\alpha} \\ \sin{\alpha} & \cos{\alpha} \end{bmatrix}$ & $2 \cos{\alpha}$ & 1 & 0 = Keine reelle Lösung! & $\lambda^2 + -2 \lambda \cos{\alpha} + 1$ & $R_{\alpha}^{-1} = \begin{bmatrix} \cos{\alpha} & \sin{\alpha} \\ -\sin{\alpha} & \cos{\alpha} \end{bmatrix}$ & Orthogonal \\
+				\hline
+					Drehung um X-Achse! & $R_{x}(\alpha) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos{\alpha} & -\sin{\alpha} \\ 
+					0 & \sin{\alpha} & \cos{\alpha} \end{bmatrix}$ & $1 + 2 \cos{\alpha}$ & 1 & 0 & 
+					$(\lambda - 1)(\lambda^2 - 2 \lambda \cos{\alpha} + 1)$ & $R_{x}(\alpha)^{-1} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos{\alpha} & \sin{\alpha} \\ 0 & -\sin{\alpha} & \cos{\alpha} \end{bmatrix}$ & Orthogonal \\
+				\hline
+					Drehung um Y-Achse! & $R_{y}(\alpha) = \begin{bmatrix} \cos{\alpha} & 0 & \sin{\alpha} \\ 
+					0 & 1 & 0 \\ -\sin{\alpha} & 0 & \cos{\alpha} \end{bmatrix}$ & $1 + 2 \cos{\alpha}$ & 1 & 0 & 
+					$(\lambda - 1)(-\lambda^2 + 2 \lambda \cos{\alpha} - 1)$ & $R_{y}(\alpha)^{-1} = \begin{bmatrix} \cos{\alpha} & 0 & -\sin{\alpha} \\ 0 & 1 & 0 \\ \sin{\alpha} & 0 & \cos{\alpha} \end{bmatrix}$ & Orthogonal \\
+				\hline
+					Drehung um Z-Achse! & $R_{z}(\alpha) = \begin{bmatrix} \cos{\alpha} & -\sin{\alpha} & 0 \\ 
+					\sin{\alpha} & \cos{\alpha} & 0 \\ 0 & 0 & 1 \end{bmatrix}$ & $1 + 2 \cos{\alpha}$ & 1 & 0 & 
+					$(\lambda - 1)(-\lambda^2 + 2 \lambda \cos{\alpha} - 1)$ & $R_{z}(\alpha)^{-1} = \begin{bmatrix} \cos{\alpha} & \sin{\alpha} & 0 \\ -\sin{\alpha} & \cos{\alpha} & 0 \\ 0 & 0 & 1 \end{bmatrix}$ & Orthogonal \\
+				\hline
+					Drehung um $\frac{\pi}{2}$ von Ursprung im GU8! & $R_{\frac{\pi}{2}} = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$ 
+					& 0 & 1 & 0 & $\lambda^2 + \lambda = \lambda (\lambda + 1)$ & $R_{\frac{\pi}{2}}^{-1} = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$ & Orthogonal \\
+				\hline
+					Drehung um $-\frac{\pi}{2}$ von Ursprung im GUS! & $R_{-\frac{\pi}{2}} = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$ & 0 & 1 & 0 & $\lambda^2 + \lambda = \lambda (\lambda + 1)$ & $R_{-\frac{\pi}{2}}^{-1} = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$ & Orthogonal \\
+				\hline
+					Drehung um $\frac{\pi}{4}$ & $R_{\frac{\pi}{4}} = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix}$ & $\sqrt{2}$ & 1 & 0 & $\lambda^2 -\sqrt{2} \lambda + 1$ & $R_{\frac{\pi}{4}}^{-1} = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix}$ & Orthogonal \\
+				\hline
+					Nullmatrix & $0 = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}$	& 0 & 0 & 0 & $\lambda^n$ & Keine! & Nicht orthogonal \\
+				\hline
+			\end{tabular}
+		\end{equation*}
+\end{sidewaystable}
+

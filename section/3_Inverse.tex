@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inverse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\myexternaldocument{2_Determinante}
+\clearpage
+\section{Inverse}
+
+\subsection{Definition einer Inverse}
+	\begin{enumerate}
+		\item Genau wie bei Determinanten gelten die Regeln hier auch.
+	\end{enumerate}
+
+\subsection{Eigenschaften der Inversen}
+	\begin{itemize}
+		\item Genau wie bei Determinanten besitzen Inversen die selben Eigenschaften, wobei einige Ausnahmen bestehen.
+		\item Kann nur ermittelt werden, wenn das gilt: $det (A) \neq 0$.
+	\end{itemize}
+
+\subsection{Gauss-Verfahren}
+	\begin{itemize}
+		\item Mit dem Gauss-Verfahren kann das Ganze gelöst werden. Dazu schreibt man die Einheitsmatrix rechts neben der Matrix. Nach dem Gausse erhält man links die Einheitsmatrix und rechts die Inverse der Matrix.
+			\begin{equation*}
+				\begin{array}{|ccc|ccc|}
+					\hline		
+					2 & 2 & 4 & 1 & 0 & 0 \\
+					4 & 5 & 6 & 0 & 1 & 0 \\
+					7 & 8 & 5 & 0 & 0 & 1 \\
+					\hline
+					\multicolumn{3}{c}{\underbrace{\hphantom{st\kern4\tabcolsep 1}}_{A}} &
+					\multicolumn{3}{c}{\underbrace{\hphantom{st\kern4\tabcolsep 1}}_{E}}
+					\end{array}
+				\rightarrow^{Gauss} \rightarrow
+				\begin{array}{|ccc|ccc|}
+				\hline		
+					1 & 0 & 0 & {\displaystyle \frac{23}{14}} & {\displaystyle \frac{-11}{7}} & {\displaystyle \frac{4}{7}} \\
+					0 & 1 & 0 & {\displaystyle \frac{-11}{7}} & {\displaystyle \frac{9}{7}} & {\displaystyle \frac{-2}{7}} \\
+					0 & 0 & 1 & {\displaystyle \frac{3}{14}} & {\displaystyle \frac{1}{7}} & {\displaystyle \frac{-1}{7}} \\
+				\hline 
+				\multicolumn{3}{c}{\underbrace{\hphantom{st\kern4\tabcolsep 1}}_{E}} &
+				\multicolumn{3}{c}{\underbrace{\hphantom{st\kern10\tabcolsep 1}}_{A^{-1}}}
+				\end{array}
+			\end{equation*}
+	\end{itemize}
+
+\subsection{Formeln für 2x2}
+	\begin{equation*}
+		A=\left(
+		\begin{array}{ccc}
+			a & b\\
+			c & d\\
+		\end{array}
+		\right)
+		\rightarrow
+		A^{-1}=\displaystyle \frac{1}{det(A)}\left(
+		\begin{array}{ccc}
+		d & -b\\
+		-c & a\\
+		\end{array}
+		\right)
+		= \displaystyle \frac{1}{ad-bc}\left(
+		\begin{array}{ccc}
+		d & -b\\
+		-c & a\\
+		\end{array}
+		\right)				
+	\end{equation*} 
+
+	

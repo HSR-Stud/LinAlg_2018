@@ -1,0 +1,44 @@
+%Dokumentinformationen
+\newcommand{\titleinfo}{Lineare Algebra - Formelsammlung}
+\newcommand{\authorinfo}{N. Selvarajah, S.Walker, C.Gwerder, S.K\"orner, M.Ehrler, L. Leuenberger}
+\newcommand{\versioninfo}{v2.0}
+
+% standard header
+\include{header} 
+
+\usepackage{multicol}
+\usepackage{rotating}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Neue Befehle und Definitionen                
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{grey}{rgb}{0.8,0.8,0.8}
+\newcommand{\formelbuch}[1]{$_{\textcolor{red}{\mbox{\small{S#1}}}}$}
+\newcommand{\verweis}[2]{\small{(siehe auch \ref{#1}, #2 (S. \pageref{#1}))}}
+\newcommand{\vektor}[3]{\left(\begin{array}{r} #1 \\ #2 \\ #3 \\ \end{array}\right)}
+
+\newcommand\kariert[2][0.5cm]{% 
+	\begin{tikzpicture}[gray,step=#1]
+	\pgfmathtruncatemacro\anzahl{(\linewidth-\pgflinewidth)/#1} % maximale Anzahl Kästchen pro Zeile
+	\draw (0,0) rectangle (\anzahl*#1,#2*#1) (0,0) grid (\anzahl*#1,#2*#1);
+	\end{tikzpicture} 
+}
+
+\begin{document}
+\setlength{\parindent}{0pt} %Kein Einrücken  bei neuem Paragraph
+\input{section/1_LinGl}
+\input{section/2_Determinante}
+\input{section/3_Inverse}
+\input{section/4_Vektorgeometrie}
+\input{section/5_Vektorraeume}
+\input{section/6_Zerlegungen}
+\input{section/7_Eigenwerte}
+\input{section/8_Rezepte}
+\input{section/BspAufgaben}
+\input{section/9_Tabelle}
+\input{section/FillNotizen}
+\input{section/10_TrBedienung}
+\end{document}

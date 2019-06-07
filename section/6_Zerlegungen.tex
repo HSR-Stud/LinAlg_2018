@@ -1,0 +1,243 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zerlegungen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Zerlegungen}
+
+\subsection{L-U-Zerlegung} \label{L-U-Zerlegung}
+	A = LU\\
+	(A gegeben)
+	\begin{enumerate}
+		\item Gauss (Vorwärtsreduktion)
+		\item L $\rightarrow$ Pivospalten (rot und blau), U $\rightarrow$ "Rest" (grün) 
+	\end{enumerate}\ 
+	$\begin{array}{|cccc|}
+		\hline 
+		\color{red}* & * & * & *\\
+		\color{blue}* & * & * & *\\
+		\color{blue}* & * & * & *\\
+		\color{blue}* & * & * & *\\
+		\hline
+	\end{array}$
+	$\rightarrow$
+	$\begin{array}{|cccc|}
+		\hline 
+		1 & * & * & *\\
+		0 & \color{red}* & * & *\\
+		0 & \color{blue}* & * & *\\
+		0 & \color{blue}* & * & *\\
+		\hline
+	\end{array}$
+	$\rightarrow^{...}\rightarrow$
+	$\begin{array}{|cccc|}
+		\hline 
+		1 & * & * & *\\
+		0 & 1 & * & *\\
+		0 & 0 & 1 & *\\
+		0 & 0 & 0 & \color{red}*\\
+		\hline
+	\end{array}$
+	$\rightarrow$
+	$\begin{array}{|cccc|}
+		\hline 
+		\color{green}1 & \color{green}* & \color{green}* & \color{green}*\\
+		0 & \color{green}1 & \color{green}* & \color{green}*\\
+		0 & 0 & \color{green}1 & \color{green}*\\
+		0 & 0 & 0 & \color{green}1\\
+		\hline
+	\end{array}$\ \ \ \
+	$L=	\left(\begin{array}{cccc}
+			\color{red}* & 0 & 0 & 0\\
+		 	\color{blue}* & \color{red}* & 0 & 0\\
+			\color{blue}* & \color{blue}* & \color{red}* & 0\\
+			\color{blue}* & \color{blue}* & \color{blue}* & \color{red}*\\
+	\end{array}\right)$\ \ \ \ \ \ 
+	$U=	\left(\begin{array}{cccc}
+			\color{green}* & \color{green}* & \color{green}* & \color{green}*\\
+		 	0 & \color{green}* & \color{green}* & \color{green}*\\
+			0 & 0 & \color{green}* & \color{green}*\\
+			0 & 0 & 0 & \color{green}*\\
+	\end{array}\right)$\\\\\\\\
+	\textbf{Beispiel:}\ \ \ \  
+	$A=	\left(\begin{array}{ccc}
+		-1 &\ \ 0 &\ \ 2\\
+		 \ \ 1 &\ \ 3 &\ \ 3\\
+		-1 &-3 &\ \ 1\\
+	\end{array}\right)$\\\\\\ 
+	$\begin{array}{|ccc|}
+			\hline 
+			\color{red}-1 & \ \ 0 & \ \ 2\\
+			\color{blue}\ \ 1 & \ \ 3 & \ \ 3\\
+			\color{blue}-1 & -3 & \ \ 1\\
+			\hline
+	\end{array}$
+	$\rightarrow$
+	$\begin{array}{|ccc|}
+			\hline 
+			\ \ 1 & \ \ 0 & -2\\
+			\ \ 0 & \color{red}\ \ 3 & \ \ 5\\
+			\ \ 0 & \color{blue}-3 & -1\\
+			\hline
+	\end{array}$
+	$\rightarrow$
+	$\begin{array}{|ccc|}
+			\hline 
+			\ \ 1 & \ \ 0 & -2\\
+			\ \ 0 & \ \ 1 & \ \ \frac 5 3\\
+			\ \ 0 & \ \ 0 & \color{red}\ \ 4\\
+			\hline
+	\end{array}$
+	$\rightarrow$
+	$\begin{array}{|ccc|}
+			\hline 
+			\color{green}\ \ 1 & \color{green}\ \ 0 & \color{green}-2\\
+			\ \ 0 & \color{green}\ \ 1 & \color{green}\ \ \frac 5 3\\
+			\ \ 0 & \ \ 0 & \color{green}\ \ 1\\
+			\hline
+	\end{array}$\ \ \ \ \	
+	$L=	\left(\begin{array}{ccc}
+			\color{red}-1 &\ \ 0 &\ \ 0\\
+		 	\color{blue}\ \ 1 &\color{red}\ \ 3 &\ \ 0\\
+			\color{blue}-1 &\color{blue} -3 &\color{red}\ \ 4\\
+	\end{array}\right)$\ \ \ \ \ \ 
+	$U=	\left(\begin{array}{ccc}
+			\color{green}\ \ 1 &\color{green}\ \ 0 &\color{green}-2\\
+		 	\ \ 0 &\color{green}\ \ 1 &\color{green}\ \ \frac 5 3\\
+			\ \ 0 &\ \ 0 &\color{green}\ \ 1\\
+	\end{array}\right)$\\
+		
+\subsection{L-R-Zerlegung}
+\begin{enumerate}
+	\item L-U-Zerlegung machen gemäss \ref{L-U-Zerlegung}
+	\item Matrix D berechnen (Diagonalelemente von L)\\
+		$D=\left(\begin{array}{ccc}
+			l_{11} & 0 & 0\\
+			0 & l_{22} & 0\\
+			0 & 0 & l_{33}
+		\end{array}  \right)$
+	\item L' und R berechnen\\
+		$L'=LD^{-1}$\\
+		$R=DU$\\
+		\textbf{Beispiel} gem. \ref{L-U-Zerlegung}: \quad
+		\begin{equation*}
+			L=\left(\begin{array}{ccc}
+			\color{red}-1 & 0 & 0\\
+			\color{blue} 1 &\color{red} 3 & 0\\
+			\color{blue}-1 &\color{blue} -3 &\color{red} 4\\
+			\end{array}\right)
+			\quad U=\left(\begin{array}{ccc}
+			\color{green} 1 &\color{green} 0 &\color{green}-2\\
+			0 &\color{green} 1 &\color{green} \frac 5 3\\
+			0 & 0 &\color{green} 1\\
+			\end{array}\right) \quad
+			D=\left(\begin{array}{ccc}
+			\color{red}-1 & 0 & 0\\
+			 0 &\color{red} 3 & 0\\
+			0 & 0 &\color{red} 4\\
+			\end{array}\right)
+		\end{equation*}
+		\begin{equation*}
+			L'=LD^{-1}=\left(\begin{array}{ccc}
+			-1 & 0 & 0\\
+			 1 & 3 & 0\\
+			-1 & -3 & 4\\
+			\end{array}\right)
+			\left(\begin{array}{ccc}
+			-1 & 0 & 0\\
+			0 & \frac 1 3 & 0\\
+			0 & 0 & \frac 1 4\\
+			\end{array}\right)
+			= \left(\begin{array}{ccc}
+			1 & 0 & 0\\
+			-1 & 1 & 0\\
+			1 & -1 & 1\\
+			\end{array}\right)
+		\end{equation*}
+		
+		\begin{equation*}
+			R=DU=\left(\begin{array}{ccc}
+			-1 & 0 & 0\\
+			0 & 3 & 0\\
+			0 & 0 & 4\\
+			\end{array}\right)
+			\left(\begin{array}{ccc}
+			1 & 0 & -2\\
+			0 & 1 & \frac 5 3\\
+			0 & 0 & 1\\
+			\end{array}\right)
+			=\left(\begin{array}{ccc}
+			-1 & 0 & 2\\
+			0 & 3 & 5\\
+			0 & 0 & 4\\
+			\end{array}\right)
+		\end{equation*}
+\end{enumerate}
+\clearpage
+\subsection{Q-R-Zerlegung / Gram-Schmidt-Zerlegung}
+	A = QR\\
+	(A gegeben)
+	\begin{enumerate}
+		\item Q $\rightarrow$ A orthonormalisieren 
+		\item R $\rightarrow$ $Q^t$A 
+	\end{enumerate} 
+	\textbf{Beispiel:}\ \ \ \  
+	$A=	\left(\begin{array}{ccc}
+		\ \ 1 &\ \ 0 &\ \ 0\\
+		\ \ 1 &\ \ 1 &\ \ 0\\
+		\ \ 1 &\ \ 1 &\ \ 1\\
+	\end{array}\right)$
+	$\rightarrow^{orthonorm.}\rightarrow$
+	$\left(\begin{array}{ccc}
+		\ \ \frac 1 {\sqrt 3}  & -\frac 2 {\sqrt 6} &\ \ 0\\
+		\ \ \frac 1 {\sqrt 3} &\ \ \frac 1 {\sqrt 6} & -\frac 1 {\sqrt 2}\\
+		\ \ \frac 1 {\sqrt 3} &\ \ \frac 1 {\sqrt 6} &\ \ \frac 1 {\sqrt 2}\\
+	\end{array}\right)$ = Q\\\\\\
+	R = $Q^t$A = 
+	$\left(\begin{array}{ccc}
+			\ \ \frac 1 {\sqrt 3}  &\ \ \frac 1 {\sqrt 3} &\ \frac 1 {\sqrt 3}\\
+			 -\frac 2 {\sqrt 6} &\ \ \frac 1 {\sqrt 6} &\ \frac 1 {\sqrt 6}\\
+			\ \ 0 & -\frac 1 {\sqrt 2} &\ \ \frac 1 {\sqrt 2}\\
+		\end{array}\right)$ * 
+	$\left(\begin{array}{ccc}
+		\ \ 1 &\ \ 0 &\ \ 0\\
+		\ \ 1 &\ \ 1 &\ \ 0\\
+		\ \ 1 &\ \ 1 &\ \ 1\\
+	\end{array}\right)$ =
+	$\left(\begin{array}{ccc}
+		\ \ \frac 3 {\sqrt 3} &\ \ \frac 2 {\sqrt 3} &\ \ \frac 1 {\sqrt 3}\\
+		\ \ 0 &\ \ \frac 2 {\sqrt 6} &\ \ \frac 1 {\sqrt 6}\\
+		\ \ 0 &\ \ 0 &\ \ \frac 1 {\sqrt 2}\\
+	\end{array}\right)$
+
+\subsection{Cholesky-Zerlegung}
+	A = $LL^t$\\
+	(A gegeben)\\\\ 
+	$A=	\left(\begin{array}{ccc}
+		\ \ l_{11} &\ \ l_{21} &\ \ l_{31}\\
+		\ \ l_{12} &\ \ l_{22} &\ \ l_{32}\\
+		\ \ l_{13} &\ \ l_{23} &\ \ l_{33}\\	
+	\end{array}\right)$ 
+	= $LL^t$ = 
+	$\left(\begin{array}{ccc}
+		\ \ x_1 &\ \ 0 &\ \ 0\\
+		\ \ x_2 &\ \ x_4 &\ \ 0\\
+		\ \ x_3 &\ \ x_5 &\ \ x_6\\	
+	\end{array}\right)$ *
+	$\left(\begin{array}{ccc}
+		\ \ x_1 &\ \ x_2 &\ \ x_3\\
+		\ \ 0 &\ \ x_4 &\ \ x_5\\
+		\ \ 0 &\ \ 0 &\ \ x_6\\	
+	\end{array}\right)$\\\\\\ 
+	(1): $x_1*x_1 + 0*0 + 0*0 = x_1^2 = l_{11}$ $\rightarrow$ $x_1$ berechnen\\ 		
+	(2): $x_2*x_1 + x_4*0 + 0*0 = x_2*x_1 = l_{12}$ $\rightarrow$ $x_2$ berechnen\\ 
+	(3): $x_3*x_1 + x_5*0 + x_6*0 = x_3*x_1 = l_{13}$ $\rightarrow$ $x_3$ berechnen\\
+	(4): $x_2*x_2 + x_4*x_4 + 0*0 = x_2^2 + x_4^2 = l_{22}$ $\rightarrow$ $x_4$ berechnen\\
+	(5): $x_3*x_2 + x_5*x_4 + x_6*0 = x_3*x_2 + x_5*x_4 = l_{23}$ $\rightarrow$ $x_5$ berechnen\\	
+	(6): $x_3*x_3 + x_5*x_5 + x_6*x_6 = x_3^2 + x_5^2 + x_6^2 = l_{33}$ $\rightarrow$ $x_6$ berechnen\\	
+
+
+
+
+
+
+

@@ -1,0 +1,102 @@
+\subsection{Gauss-Verfahren}
+	Das Gauss-Verfahren ist ein Algorithmus und kann für das Lösen LGS verwendet werden. Es basiert auf das Additionsverfahren. Wobei die Schritte normiert sind. Damit hat man ein stures Verfahren, das bei sehr grossen Matrizen die Rechenschritte vereinfachen kann. \\ \\
+	Vorgehen:
+	\begin{itemize}
+		\item Ein LGS mit 3 Gleichungen und 3 Unbekannten hat die Form: \\
+			$$		a_{11}x_1 + a_{12}x_2 + a_{13}x_3 = b_1 $$
+			$$		a_{21}x_1 + a_{22}y_2 + a_{23}x_3 = b_2 $$
+			$$		a_{31}x_1 + a_{32}x_2 + a_{33}x_3 = b_3 $$
+		\item Gleichungen aufstellen:
+			$$ x + 4y + 3z = 8 $$
+			$$ 2x + 8y + z = 7 $$
+			$$ 3x + 2y + 5z = 5 $$
+		\item Gleichungen in Gauss-Tableau überführen:
+			\begin{equation*}
+				\begin{bmatrix}[ccc|c]
+					x_1		& x_2	 & x_3		& b_x \\
+					\hline
+					a_{11}	& a_{12} & a_{13}	& b_1 \\ 
+					a_{21}	& a_{22} & a_{23}	& b_2 \\ 
+					a_{31}	& a_{32} & a_{33}	& b_3
+				\end{bmatrix}
+				\rightarrow
+				\begin{bmatrix}[ccc|c]
+					1 & 4 & 3 & 8 \\ 
+					2 & 8 & 1 & 7 \\ 
+					3 & 2 & 5 & 5
+				\end{bmatrix} 
+				\rightarrow
+				\begin{array}{|ccc|c|}
+					\hline		
+					1 & 2 & 3 & 8 \\
+					4 & 5 & 6 & 7 \\
+					7 & 8 & 5 & 5 \\
+					\hline
+				\end{array} 
+			\end{equation*}
+		\item Gauss Schritt für Schritt:
+			\begin{itemize}
+				\item Rot: {\quad}{\,} Die ganze Zeile mit rot umrandeter Zahl teilen.
+				\item Blau:	{\quad}{\!} Die Zeile mit der vorher rot geteilten Zahl solange subtrahieren, bis 0 bei blau umrandeter Zahl steht.
+				\item Orange: Einheitsmatrix bzw. jedes Element hat einen bestimmten Wert auf der rechten Seite bekommen.
+			\end{itemize}
+			\begin{equation*}
+				\begin{array}{|ccc|c|}
+					\hline		
+					\circledr{2} & 2 & 4 & 8 \\
+					4 & 5 & 6 & 7 \\
+					7 & 8 & 5 & 5 \\
+					\hline
+				\end{array}
+				\rightarrow^{Gauss} \rightarrow
+				\begin{array}{|ccc|c|}
+				\hline		
+					1 & 1 & 2 & 4 \\
+					\circledb{4} & 5 & 6 & 7 \\
+					\circledb{7} & 8 & 5 & 5 \\
+				\hline
+				\end{array}
+				\rightarrow^{Gauss} \rightarrow
+				\begin{array}{|ccc|c|}
+				\hline		
+					1 & 1 & 2 & 4 \\
+					0 & 1 & -2 & -9 \\
+					0 & \circledb{1} & -9 & -23 \\
+				\hline
+				\end{array}
+				\rightarrow^{Gauss} \rightarrow
+				\begin{array}{|ccc|c|}
+				\hline		
+					1 & 1 & 2 & 4 \\
+					0 & 1 & -2 & -9 \\
+					0 & 0 & \circledr{-7} & -14 \\
+				\hline
+				\end{array}
+				\rightarrow^{Gauss} \rightarrow
+			\end{equation*}
+			\begin{equation*}
+				\begin{array}{|ccc|c|}
+				\hline		
+					1 & 1 & \circledb{2} & 4 \\
+					0 & 1 & \circledb{-2} & -9 \\
+					0 & 0 & 1 & 2 \\
+				\hline
+				\end{array}
+				\rightarrow^{Gauss} \rightarrow
+				\begin{array}{|ccc|c|}
+				\hline		
+					1 & \circledb{1} & 0 & 0 \\
+					0 & 1 & 0 & -5 \\
+					0 & 0 & 1 & 2 \\
+				\hline
+				\end{array}
+				\rightarrow^{Gauss} \rightarrow
+				\begin{array}{|ccc|c|}
+				\hline		
+					\circledy{1} & 0 & 0 & 5 \\
+					0 & \circledy{1} & 0 & -5 \\
+					0 & 0 & \circledy{1} & 2 \\
+				\hline
+				\end{array}
+			\end{equation*}
+	\end{itemize}
